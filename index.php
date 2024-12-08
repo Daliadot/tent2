@@ -102,10 +102,7 @@ $result = $stmt->get_result();
 </body>
 
 <style>
-pipo{
-    height: 20px;
-    border-radius: 23px;
-}
+
 
 .oswald-<uniquifier> {
   font-family: "Oswald", sans-serif;
