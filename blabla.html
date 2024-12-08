@@ -47,18 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php } ?>
 <div class="container">
 
-<div class="glassBox">
+  <div class="glassBox">
     <form method="POST" action="admin_login.php">
-        <h1>OLA,BEM VINDO DE VOLTA!</h1>
+        <h1>OLA, BEM VINDO DE VOLTA!</h1>
         <label for="username">Usuário:</label>
         <input type="text" id="username" name="username" required><br><br>
 
         <label for="password">Senha:</label>
         <input type="password" id="password" name="password" required><br><br>
 
-       <div class="sub"> <button type="submit">Entrar</button></div>
+        <button type="submit" class="submit">Entrar</button>
     </form>
 </div>
+
+   
 </div>
     <style>
 body {
@@ -159,7 +161,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
-    color: #fff;
+    color: #898686;
     transition: all 0.3s ease;
   }
   
@@ -170,22 +172,24 @@ input {
   }
   
   /* Botões */
-  .sub  {
+ /* Botão corrigido */
+button.submit {
     width: 100%;
     padding: 12px;
-    background-color: #cd8d82;
+    background-color: #bebbb9;
     border: none;
     color: white;
     font-size: 16px;
     cursor: pointer;
     border-radius: 23px;
     transition: all 0.3s ease;
-  }
-  
-  .sub input:hover {
-    background-color: hsl(11, 76%, 73%);
+}
+
+button.submit:hover {
+    background-color: hsl(11, 10%, 42%);
     transform: scale(1.1);
-  }
+}
+
   
   /* Estilo responsivo */
   @media (max-width: 768px) {
