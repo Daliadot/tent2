@@ -29,16 +29,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="logins.css">
 </head>
 <body>
-    <h2>Cadastro de Usuário</h2>
+  <div class="container">
+    <div class="glassBox">
     <form action="register.php" method="POST">
+      <h2>Cadastro de Usuário</h2>
         <label for="username">Nome de Usuário:</label><br>
         <input type="text" id="username" name="username" required><br><br>
 
@@ -47,5 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit">Cadastrar</button>
     </form>
+  </div>
+  </div>
 </body>
 </html>

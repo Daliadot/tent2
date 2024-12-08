@@ -42,14 +42,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['title']) && isset($_PO
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="logins.css">
     <meta charset="UTF-8">
     <title>Publicar Notícia</title>
 </head>
 <body>
 
-    <h2>Publicar Notícia</h2>
+  <div class="container">
+    <div class="glassBox">
 
     <form method="POST" action="publish_news.php" enctype="multipart/form-data">
+      <h2>Publique sua noticia!!</h2>
         <label for="title">Título:</label>
         <input type="text" id="title" name="title" required><br><br>
 
@@ -61,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['title']) && isset($_PO
 
         <button type="submit">Publicar</button>
     </form>
-
+    </div>
+  </div>
 </body>
 </html>

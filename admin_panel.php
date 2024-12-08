@@ -38,7 +38,9 @@ $result = $stmt->get_result();
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrativo</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h2>Painel Administrativo</h2>
@@ -55,18 +57,94 @@ $result = $stmt->get_result();
                 <?php if ($news['image']) { ?>
                     <img src="uploads/<?php echo $news['image']; ?>" alt="Imagem da Notícia" width="200">
                 <?php } ?>
-                <form method="POST" style="display: inline-block;">
+                <form method="POST">
                     <input type="hidden" name="news_id" value="<?php echo $news['id']; ?>">
                     <button type="submit" name="action" value="approve">Aprovar</button>
                     <button type="submit" name="action" value="reject">Rejeitar</button>
                 </form>
             </div>
-            <hr>
         <?php } ?>
     <?php } else { ?>
         <p>Não há notícias pendentes.</p>
     <?php } ?>
 
     <?php $stmt->close(); ?>
+
+
+
+
+
+   
+    <style>
+      :root {
+    --gray-light: #f9f9f9;
+    --gray-medium: #cccccc;
+    --gray-dark: #333333;
+    --gray-border: #e0e0e0;
+
+    --border-radius: 23px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--gray-light);
+    color: var(--gray-dark);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h2, h3 {
+    text-align: center;
+    color: var(--gray-dark);
+}
+
+div {
+    background-color: var(--gray-light);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+div img {
+    display: block;
+    margin: 10px auto;
+    border-radius: var(--border-radius);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    background-color: var(--gray-medium);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    color: var(--gray-dark);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: var(--gray-dark);
+    color: var(--gray-light);
+}
+
+a {
+    text-decoration: none;
+    color: var(--gray-dark);
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--gray-medium);
+}
+
+    </style>
 </body>
 </html>

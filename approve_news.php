@@ -34,10 +34,11 @@ $result = $stmt->get_result();
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprovar Notícias</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <h2>Aprovar ou Rejeitar Notícias Pendentes</h2>
 
     <?php while ($news = $result->fetch_assoc()) { ?>
@@ -51,8 +52,57 @@ $result = $stmt->get_result();
             <a href="approve_news.php?action=approve&id=<?php echo $news['id']; ?>">Aprovar</a> |
             <a href="approve_news.php?action=reject&id=<?php echo $news['id']; ?>">Rejeitar</a>
         </div>
-        <hr>
     <?php } ?>
-
 </body>
+<style>
+  :root {
+    --gray-light: #f9f9f9;
+    --gray-medium: #cccccc;
+    --gray-dark: #333333;
+    --gray-border: #e0e0e0;
+
+    --border-radius: 23px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--gray-light);
+    color: var(--gray-dark);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h2 {
+    text-align: center;
+    color: var(--gray-dark);
+}
+
+div {
+    background-color: var(--gray-light);
+    border: 1px solid var(--gray-border);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+div img {
+    display: block;
+    margin: 10px auto;
+    border-radius: var(--border-radius);
+}
+
+a {
+    text-decoration: none;
+    color: var(--gray-dark);
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+a:hover {
+    color: var(--gray-medium);
+}
+
+</style>
 </html>
