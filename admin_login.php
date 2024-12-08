@@ -47,55 +47,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php } ?>
 <div class="container">
 
-<div class="glassBox">
+  <div class="glassBox">
     <form method="POST" action="admin_login.php">
+        <h1>OLA, BEM VINDO DE VOLTA!</h1>
         <label for="username">Usuário:</label>
         <input type="text" id="username" name="username" required><br><br>
 
         <label for="password">Senha:</label>
         <input type="password" id="password" name="password" required><br><br>
 
-        <button type="submit">Entrar</button>
+        <button type="submit" class="submit">Entrar</button>
     </form>
 </div>
+
+   
 </div>
     <style>
 body {
     margin: 0;
     padding: 0;
-    background: url('june 2024 desktop laptop wallpaper by sincerely_jehn.jpg') no-repeat center center fixed;
+    background: url('bg.jpeg') no-repeat center center fixed;
     background-size: cover;
     font-family: "Rubik", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    color: #fff;
-  }
+    color: #000; /* Texto preto */
+}
 
-    .container {
+.container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    height: 100%;
     padding: 20px;
-    max-width: 1200px;
-  }
-  .glassBox {
-    background: rgba(255, 255, 255, 0.2); /* Fundo translúcido com mais opacidade */
-    backdrop-filter: blur(10px); /* Efeito de desfoque */
+}
+
+.glassBox {
+    background: rgba(255, 255, 255, 0.8); /* Fundo translúcido com opacidade maior */
+    backdrop-filter: blur(10px);
     border-radius: 23px;
     box-shadow: 
-      rgba(0, 0, 0, 0.25) 0px 54px 55px,
-      rgba(0, 0, 0, 0.12) 0px -12px 30px,
-      rgba(0, 0, 0, 0.12) 0px 4px 6px,
-      rgba(0, 0, 0, 0.17) 0px 12px 13px,
-      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px,
+        rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px,
+        rgba(0, 0, 0, 0.09) 0px -3px 5px;
     padding: 30px;
     width: 400px;
     transition: all 0.5s ease-in-out;
-  }
+    color: #000; /* Texto preto */
+}
+
+.glassBox h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #000; /* Texto preto */
+    margin-bottom: 20px;
+    text-shadow: none; /* Remove sombra do texto */
+}
+
+input {
+    color: #000; /* Texto preto nos inputs */
+}
+
+
   
   .glassBox:hover {
     transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
@@ -144,7 +161,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
-    color: #fff;
+    color: #898686;
     transition: all 0.3s ease;
   }
   
@@ -155,22 +172,24 @@ body {
   }
   
   /* Botões */
-  .submit input {
+ /* Botão corrigido */
+button.submit {
     width: 100%;
     padding: 12px;
-    background-color: #cd8d82;
+    background-color: #bebbb9;
     border: none;
     color: white;
     font-size: 16px;
     cursor: pointer;
     border-radius: 23px;
     transition: all 0.3s ease;
-  }
-  
-  .submit input:hover {
-    background-color: hsl(11, 76%, 73%);
+}
+
+button.submit:hover {
+    background-color: hsl(11, 10%, 42%);
     transform: scale(1.1);
-  }
+}
+
   
   /* Estilo responsivo */
   @media (max-width: 768px) {

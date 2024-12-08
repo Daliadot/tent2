@@ -44,19 +44,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="logins.css">
     <title>Login</title>
 </head>
 <body>
-    <h2>Login</h2>
+    
 
     <?php if (isset($error)): ?>
         <p style="color:red;"><?= htmlspecialchars($error); ?></p>
     <?php endif; ?>
-
+<div class="container">
+  <div class="glassBox">
+    <h2>Login</h2>
     <form method="POST" action="login.php">
         <label for="username">Usuário:</label>
         <input type="text" id="username" name="username" required><br><br>
@@ -66,5 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <button type="submit">Entrar</button>
     </form>
+  </div>
+</div>
 </body>
 </html>
