@@ -24,9 +24,27 @@ $result = $stmt->get_result();
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Oswald:wght@200..700&family=Roboto+Slab:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body class="<?= $theme ?>">
-
-    <header>
+    
+    <nav>
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.php">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.php">Contato</a></li>
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <li class="nav-item"><a class="nav-link" href="logout.php">Sair</a></li>
+                <li class="nav-item"><a class="nav-link" href="publish_news.php">Publicar Notícia</a></li>
+            <?php else: ?>
+                <li class="nav-item"><a class="nav-link" href="admin_login.php">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="register.php">Cadastro</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+    
+    
+ 
 <!--Carrosel-->
+<div class="pipo">
         <div id="carouselExampleIndicators" class="carousel slide">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -36,14 +54,12 @@ $result = $stmt->get_result();
 <!--As imagens aqui-->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img src="Group 6.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img src="Group 4.png" class="d-block w-100" alt="...">
                 </div>
-                <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
-                </div>
+               
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -54,30 +70,20 @@ $result = $stmt->get_result();
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-
+</div>
         <!--Navbar-->
-        <nav>
-            <a href="index.php">Início</a>
-            <a href="about.php">Sobre</a>
-            <a href="contact.php">Contato</a>
-        </nav>
+      
+<!--Favicon-->
+<link rel="shortcut icon" href="icon_svg.jpeg" type="image/x-icon">
+
     </header>
+<br>
+<br>
 
+    <h2>Bem Vindo ao LifeLab! Seu canal de notícias Tech!</h2>
 
-    <h2>Saiba tudo o que acontece na cidade mais movimentada do País!</h2>
-
-    <?php if (isset($_SESSION['user_id'])) { ?>
-        <div class="links-container">
-            <a href="logout.php">Sair?</a>
-            <a href="publish_news.php">Publicar Notícia</a>
-        </div>
-    <?php } else { ?>
-        <div class="links-container">
-            <a href="admin_login.php">Admin</a>
-            <p>Não tem uma conta? <a href="register.php">Cadastro</a>.</p>
-            <p>Para publicar uma notícia, <a href="login.php">faça login aqui</a>.</p>
-        </div>
-    <?php } ?>
+   <br>
+   <br>
 
     <h3>Últimas Notícias</h3>
 
@@ -96,7 +102,10 @@ $result = $stmt->get_result();
 </body>
 
 <style>
-
+pipo{
+    height: 20px;
+    border-radius: 23px;
+}
 
 .oswald-<uniquifier> {
   font-family: "Oswald", sans-serif;
@@ -104,32 +113,44 @@ $result = $stmt->get_result();
   font-weight: <weight>;
   font-style: normal;
 }
+h2{
+    font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
         body {
   font-family: "Oswald", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-            margin: 0;
+          margin: 0;
             padding: 0;
+            background-color: #EEEAE7;
         }
 
         header {
             background-color: #333;
             color: white;
             padding: 10px 20px;
+            border-radius:43px;
             
         }
 
         nav a {
-            color: red;
+            color: #EEEAE7;
             text-decoration: none;
-            margin-right: 15px;
+            align-items:center;
+            align-content: center;
+            text-align: center;
             transition: color 0.3s;
         }
 
         nav a:active {
             color: #800000; /* Muda para vinho ao clicar */
         }
+
+        
 
         h2, h3 {
             text-align: center;
@@ -156,7 +177,9 @@ $result = $stmt->get_result();
             max-width: 200px;
             border-radius: 5px;
         }
-
+        #carousel-indicators{
+            color: #000;
+        }
         .links-container {
             text-align: center;
             margin-bottom: 20px;
@@ -178,5 +201,79 @@ $result = $stmt->get_result();
         hr {
             border: 1px solid #ddd;
         }
+        .links-container {
+    text-align: center;
+    margin: 20px 0;
+    font-family: "Rubik", sans-serif;
+}
+
+.links-container a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #444;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.links-container a:hover {
+    background-color: #eee;
+    color: #000;
+    border-color: #999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.links-container p {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+
+.links-container p a {
+    color: #444;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.links-container p a:hover {
+    color: #000;
+}
+.nav-item a.btn {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-item a.btn:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0.9;
+}
+.nav-tabs .nav-link {
+    color: #333; /* Cor inicial dos links */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-tabs .nav-link:hover {
+    color: #800000; /* Cor ao passar o mouse */
+    background-color: #f0f0f0; /* Fundo ao passar o mouse */
+    border-radius: 5px;
+}
+
+.nav-tabs .nav-link.active {
+    color: white; /* Cor do texto do link ativo */
+    background-color: #333; /* Fundo do link ativo */
+    border-radius: 5px;
+}
+
+
     </style>
     </html>
