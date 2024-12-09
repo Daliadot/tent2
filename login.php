@@ -4,7 +4,12 @@ include('db.php');
 
 // Verificando se o usuário já está logado
 if (isset($_SESSION['user_id'])) {
-    header('Location: index.php'); // Redireciona para a página de notícias se já estiver logado
+    // Verifica se o usuário tem a role de admin e redireciona para o painel de admin
+    if ($_SESSION['role'] === 'admin') {
+        header('Location: painel_admin.php'); // Página do painel de administração
+    } else {
+        header('Location: index.php'); // Redireciona para a página de notícias
+    }
     exit();
 }
 
@@ -30,8 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['username'] = $user['username'];
             $_SESSION['role'] = $user['role'];
 
-            // Redirecionando para a página inicial de notícias
-            header('Location: index.php');
+            // Verificando o papel do usuário e redirecionando
+            if ($user['role'] === 'admin') {
+                header('Location: admin_panel.php'); // Redireciona para o painel de admin
+            } else {
+                header('Location: index.php'); // Redireciona para a página de notícias
+            }
             exit();
         } else {
             $error = 'Senha incorreta.';
@@ -44,7 +53,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -53,24 +61,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
 </head>
 <body>
-    
-
     <?php if (isset($error)): ?>
         <p style="color:red;"><?= htmlspecialchars($error); ?></p>
     <?php endif; ?>
-<div class="container">
-  <div class="glassBox">
-    <h2>Login</h2>
-    <form method="POST" action="login.php">
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username" required><br><br>
+    <div class="container">
+        <div class="glassBox">
+            <h2>Login</h2>
+            <form method="POST" action="login.php">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required><br><br>
 
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required><br><br>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required><br><br>
 
-        <button type="submit">Entrar</button>
-    </form>
-  </div>
-</div>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

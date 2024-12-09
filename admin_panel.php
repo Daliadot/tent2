@@ -55,7 +55,7 @@ $result = $stmt->get_result();
                 <h4><?php echo htmlspecialchars($news['title']); ?></h4>
                 <p><?php echo nl2br(htmlspecialchars($news['content'])); ?></p>
                 <?php if ($news['image']) { ?>
-                    <img src="uploads/<?php echo $news['image']; ?>" alt="Imagem da Notícia" width="200">
+                    <img src="assets/image/<?php echo $news['image']; ?>" alt="Imagem da Notícia" width="200">
                 <?php } ?>
                 <form method="POST">
                     <input type="hidden" name="news_id" value="<?php echo $news['id']; ?>">

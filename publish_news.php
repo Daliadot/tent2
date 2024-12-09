@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['title']) && isset($_PO
     // Processando a imagem, se houver
     if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
         $image = basename($_FILES['image']['name']); // Nome seguro do arquivo
-        move_uploaded_file($_FILES['image']['tmp_name'], 'uploads/' . $image);
+        move_uploaded_file($_FILES['image']['tmp_name'], 'assets/image/' . $image);
     }
 
     // Inserindo a notícia no banco de dados com status 'pending' e associando ao usuário logado

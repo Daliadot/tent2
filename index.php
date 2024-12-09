@@ -29,7 +29,6 @@ $result = $stmt->get_result();
         <ul class="nav nav-tabs">
             <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="about.php">Sobre</a></li>
-            <li class="nav-item"><a class="nav-link" href="contact.php">Contato</a></li>
             <?php if (isset($_SESSION['user_id'])): ?>
                 <li class="nav-item"><a class="nav-link" href="logout.php">Sair</a></li>
                 <li class="nav-item"><a class="nav-link" href="publish_news.php">Publicar Notícia</a></li>
@@ -92,7 +91,7 @@ $result = $stmt->get_result();
             <h4><?php echo htmlspecialchars($news['title']); ?></h4>
             <p><?php echo nl2br(htmlspecialchars($news['content'])); ?></p>
             <?php if ($news['image']) { ?>
-                <img src="uploads/<?php echo $news['image']; ?>" alt="Imagem da Notícia">
+                <img src="assets/image/<?php echo $news['image']; ?>" alt="Imagem da Notícia">
             <?php } ?>
         </div>
         <hr>
